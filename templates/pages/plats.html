@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+  <title>Liste des plats</title>
+  <link href="{% static 'css/material-dashboard.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>Liste des plats</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Libelle</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for plat in plats %}
+          <tr>
+            <td>{{ plat.nom }}</td>
+            <td>
+              <button class="btn btn-primary">Modifier</button>
+              <button class="btn btn-danger">Supprimer</button>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="2">Aucun plat trouvé.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
+
