@@ -1,0 +1,6 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Enregistrer les modifications</button>
+    <a href="{% url 'plat:index' %}">Annuler</a>
+</form>
