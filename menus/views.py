@@ -1,13 +1,29 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from menus.forms import MenuForm
 from menus.models import Menu
+from plats.models import Plat
+from django.db.models import Q
 
 # Create your views here.
 
 
+# def menu(request):
+#     menus = Menu.objects.all()
+#     return render(request, 'pages/menus.html', {'menus': menus})
+
+
 def menu(request):
-    menus = Menu.objects.all()
-    return render(request, 'pages/menus.html', {'menus': menus})
+    search_field = request.GET.get('search')
+    if search_field:
+        found = Menu.objects.filter(id__icontains=search_field)
+        total = found.count()
+
+        return render(request, 'pages/menus.html', {'all_menu': found, 'total': total, 'search_field':search_field})
+    else:
+        all_menu = Menu.objects.all()
+        all_plat = Plat.objects.all()
+        total = all_menu.count()
+        return render(request, 'pages/menus.html', {'all_menu': all_menu, 'all_plat': all_plat,'total': total})
 
 
 def menu_form(request):

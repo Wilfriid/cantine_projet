@@ -7,6 +7,19 @@ def plat(request):
     plats = Plat.objects.all()
     return render(request, 'pages/plats.html', {'plats': plats})
 
+# def plat(request):
+#     search_field = request.GET.get('search')
+#     if search_field:
+#         found = Plat.objects.filter(name__icontains=search_field)
+#         total = found.count()
+
+#         return render(request, 'pages/plats.html', {'all_plat': found, 'total': total, 'search_field': search_field})
+#     else:
+#         all_plat = Plat.objects.all()
+#         total = all_plat.count()
+#         return render(request, 'pages/plats.html', {'all_plat': all_plat, 'total': total})
+
+
 def plat_form(request):
     if request.method == 'POST':
         form = PlatForm(request.POST)

@@ -77,16 +77,13 @@
               <a class="btn btn-outline-warning btn-sm mb-0 me-3" href="{% url 'plat:add' %}">Ajouter un plat</a>
             </li>
           </ul>
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <form method="get" action="{% url 'plat:index' %}" class="d-flex ms-md-auto pe-md-3 align-items-center">
             <div class="input-group input-group-outline">
-              <label class="form-label">Recherche par nom</label>
-              <input type="text" class="form-control">
+              <label class="form-label"placeholder="Entrez votre recherche">R</label>
+              <input type="text" class="form-control" name="search" value="{{ request.GET.search }}">
             </div>
-          </div>
-          <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <button class="btn btn-outline-primary btn-sm mb-0 me-3">Recherche</button>
-            </li>
+            <button type="submit" class="btn btn-outline-primary btn-sm mb-0 me-3">Recherche</button>
+          </form>
           </ul>
         </div>
       </div>

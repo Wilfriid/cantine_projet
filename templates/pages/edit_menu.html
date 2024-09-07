@@ -1,6 +1,49 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Enregistrer les modifications</button>
-    <a href="{% url 'menus:index' %}">Annuler</a>
-</form>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-container .form-group {
+            margin-bottom: 15px;
+        }
+        .form-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .form-container a {
+            color: #6c757d;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-left: 10px;
+            border: 1px solid #6c757d;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form }}
+        </div>
+        <button type="submit">Enregistrer les modifications</button>
+        <a href="{% url 'menus:index' %}">Annuler</a>
+    </form>
+</body>
+</html>
