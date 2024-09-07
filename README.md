@@ -9,7 +9,7 @@
 - **Gestion des menus** : Affichage de la liste des menus disponibles dans la cantine.
 - **Gestion des plats** : Ajout, modification, et suppression de plats.
 - **Recherche** : Recherche de plats par nom.
-- **Interface utilisateur moderne** : Utilisation de la bibliothèque CSS pour une interface utilisateur responsive et agréable.
+
 
 ## Installation
 
